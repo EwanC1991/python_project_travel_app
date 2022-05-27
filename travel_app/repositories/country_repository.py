@@ -21,3 +21,13 @@ def select_all():
         country = Country(row['name'], row['visited'])
         countries.append(country)
     return countries
+
+def select(id):
+    country = None
+    sql = "SELECT * FROM countries WHERE id = ?"
+    values = [id]
+    result = run_sql(sql, values)[0]
+
+    if result is not None:
+        return country
+
