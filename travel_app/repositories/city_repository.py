@@ -24,3 +24,14 @@ def select_all():
         city = City(row['name'], row['visited'], country, row['id'])
         cities.append(city)
     return cities
+
+def select(id):
+    city = None
+    sql = "SELECT * FROM cities WHERE id = ?"
+    values = [id]
+    result = run_sql(sql, values)[0]
+
+    if result is not None:
+        country = country_repository.select(result['country_id'])
+        city = City(result['name'], result['visited'], country, result['id'])
+    return city
