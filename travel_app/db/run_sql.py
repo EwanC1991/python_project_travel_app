@@ -3,7 +3,7 @@ import os
 
 def get_db():
     path = os.path.dirname(os.path.abspath(__file__))
-    db = os.path.join, "travel_app.db"
+    db = os.path.join(path, "travel_app.db")
     conn = sqlite3.connect(db)
     conn.execute("PRAGMA foreign_keys = 1")
     conn.row_factory = sqlite3.Row

@@ -34,3 +34,4 @@ def select(id):
 def delete_all():
     sql = "DELETE FROM countries"
     run_sql(sql)
+

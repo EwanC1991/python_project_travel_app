@@ -6,14 +6,14 @@ DROP TABLE IF EXISTS countries;
 CREATE TABLE countries (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     name VARCHAR,
-    visited VARCHAR
-)
+    visited BOOLEAN
+);
 
 CREATE TABLE cities (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     name VARCHAR,
-    visited VARCHAR,
+    visited BOOLEAN,
     country_id INTEGER NOT NULL,
         FOREIGN KEY (country_id)
                 REFERENCES countries(id)
-)
+);
