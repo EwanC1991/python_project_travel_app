@@ -20,8 +20,9 @@ def select_all():
     results = run_sql(sql)
 
     for row in results:
+        visited = True if row['visited'] == 1 else False
         country = country_repository.select(row['country_id'])
-        city = City(row['name'], row['visited'], country, row['id'])
+        city = City(row['name'], visited, country, row['id'])
         cities.append(city)
     return cities
 
@@ -32,8 +33,9 @@ def select(id):
     result = run_sql(sql, values)[0]
 
     if result is not None:
+        visited = True if result['visited'] == 1 else False
         country = country_repository.select(result['country_id'])
-        city = City(result['name'], result['visited'], country, result['id'])
+        city = City(result['name'], visited, country, result['id'])
     return city
 
 def delete_all():

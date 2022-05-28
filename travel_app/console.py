@@ -13,8 +13,13 @@ country_repository.save(country1)
 country2 = Country("France", True)
 country_repository.save(country2)
 
+country_repository.select_all()
+
 city1 = City ("Barcelona", False, country1)
 city_repository.save(city1)
 city2 = City("Paris", True, country2)
 city_repository.save(city2)
 
+city_repository.select_all()
+
+# pdb.set_trace()
