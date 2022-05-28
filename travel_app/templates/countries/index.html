@@ -1,4 +1,15 @@
 {% extends "base.html" %}
 {% block content %}
-Hello World
+
+{% for country in all_countries %}
+<div class="country">
+    {{country.name}}
+</div>
+{% if country.visited == True %}
+This has been visited
+{% else %}
+This has not been visited
+{% endif %}
+{% endfor %}
+
 {% endblock %}
