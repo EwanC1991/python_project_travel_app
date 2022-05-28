@@ -22,4 +22,4 @@ city_repository.save(city2)
 
 city_repository.select_all()
 
-# pdb.set_trace()
+pdb.set_trace()
