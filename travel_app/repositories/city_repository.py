@@ -41,3 +41,13 @@ def select(id):
 def delete_all():
     sql = "DELETE FROM cities"
     run_sql(sql)
+
+def delete(id):
+    sql = "DELETE FROM cities WHERE id = ?"
+    values = [id]
+    run_sql(sql, values)
+
+def update(city):
+    sql = "UPDATE cities SET (name, visited, country_id) = (?, ?, ?) WHERE id = ?"
+    values = [city.name, city.visited, city.country.id]
+    run_sql(sql, values)
