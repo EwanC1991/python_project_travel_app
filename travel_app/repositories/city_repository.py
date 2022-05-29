@@ -6,8 +6,8 @@ from models.country import Country
 import repositories.country_repository as country_repository
 
 def save(city):
-    sql = "INSERT INTO cities (name, visited, country_id) VALUES (?, ?, ?) RETURNING *"
-    values = [city.name, city.visited, city.country.id]
+    sql = "INSERT INTO cities (name, country_id, visited) VALUES (?, ?, ?) RETURNING *"
+    values = [city.name, city.country.id, city.visited]
     results = run_sql(sql, values)
     id = results[0]['id']
     city.id = id

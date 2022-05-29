@@ -45,7 +45,8 @@ def edit_country(id):
 @countries_blueprint.route("/countries/<id>", methods=['POST'])
 def update_country(id):
     name = request.form['name']
-    country = Country(name)
+    visited   = bool(int(request.form['visited']))
+    country = Country(name, visited, id)
     country_repository.update(country)
     return redirect('/countries')
 

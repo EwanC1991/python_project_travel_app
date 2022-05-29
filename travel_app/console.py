@@ -15,9 +15,9 @@ country_repository.save(country2)
 
 country_repository.select_all()
 
-city1 = City ("Barcelona", False, country1)
+city1 = City ("Barcelona", country1, False)
 city_repository.save(city1)
-city2 = City("Paris", True, country2)
+city2 = City("Paris", country2, True)
 city_repository.save(city2)
 
 city_repository.select_all()

@@ -19,7 +19,7 @@ def select_all():
 
     for row in results:
         visited = True if row['visited'] == 1 else False
-        country = Country(row['name'], visited)
+        country = Country(row['name'], visited, row['id'])
         countries.append(country)
     return countries
 
@@ -32,7 +32,7 @@ def select(id):
     if result is not None:
         visited = True if result['visited'] == 1 else False
         country = Country(result['name'], visited, result['id'])
-        return country
+    return country
 
 def delete_all():
     sql = "DELETE FROM countries"
