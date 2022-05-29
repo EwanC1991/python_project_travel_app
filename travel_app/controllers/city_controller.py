@@ -31,10 +31,20 @@ def create_city():
 
 # SHOW
 # GET '/cities/<id>'
+@cities_blueprint.route("/cities/<id>", methods=['GET'])
+def show_city(id):
+    city = city_repository.select(id)
+    return render_template('cities/show.html', city=city)
 
 #EDIT 
 #GET 'cities/<id>/edit
+@cities_blueprint.route("/cities/<id>/edit", methods=['GET'])
+def edit_city(id):
+    city = city_repository.select(id)
+    countries = country_repository.select_all()
+    return render_template('cities/edit.html', city=city, all_countries=countries)
 
+    
 # UPDATE
 # PUT '/cities/<id>'
 
