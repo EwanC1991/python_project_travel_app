@@ -28,9 +28,31 @@ def create_country():
 
 # SHOW
 # GET '/countries/<id>'
+@countries_blueprint.route("/countries/<id>", methods=['GET'])
+def show_country(id):
+    country = country_repository.select(id)
+    return render_template('/countries/show.html', country=country)
+
+#EDIT 
+#GET 'countries/<id>/edit
+@countries_blueprint.route("/countries/<id>/edit", methods=['GET'])
+def edit_country(id):
+    country = country_repository.select(id)
+    return render_template('countries/edit.html', country=country)
 
 # UPDATE
 # PUT '/countries/<id>'
+@countries_blueprint.route("/countries/<id>", methods=['POST'])
+def update_country(id):
+    name = request.form['name']
+    country = Country(name)
+    country_repository.update(country)
+    return redirect('/countries')
+
 
 #DELETE
 # DELETE '/countries/<id>'
+@countries_blueprint.route("/countries/<id>/delete", methods=['POST'])
+def delete_country(id):
+    country_repository.delete(id)
+    return redirect ('/countries')
