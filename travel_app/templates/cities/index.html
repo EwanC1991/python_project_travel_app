@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block content %}
+
+{% for city in all_cities %}
+<div class="city">
+    <a href="/cities/{{city.id}}">{{city.name}}</a>
+</div>
+{% if city.visited == True %}
+This has been visited
+{% else %}
+This has not been visited
+{% endif %}
+
+
+
+{% endfor %}
+
+{% endblock %}
