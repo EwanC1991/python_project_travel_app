@@ -17,8 +17,16 @@ country_repository.select_all()
 
 city1 = City ("Barcelona", country1, False)
 city_repository.save(city1)
-city2 = City("Paris", country2, True)
+city2 = City("Madrid", country1, False)
 city_repository.save(city2)
+city3= City("Seville", country1, False)
+city_repository.save(city3)
+city4 = City("Paris", country2, True)
+city_repository.save(city4)
+city5 = City("Toulouse", country2, True)
+city_repository.save(city5)
+city6 = City("Nice", country2, True)
+city_repository.save(city6)
 
 city_repository.select_all()
 

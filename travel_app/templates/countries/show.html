@@ -3,8 +3,16 @@
 
 <div>
     <p>{{country.name}}</p>
+    {% for city in all_cities %}
+    {% if country.id == city.country.id %}
+    <div class="city">
+        {{city.name}}
+
+        {% endif %}
+
+        {% endfor %}
+    </div>
     <p><a href="/countries/{{country.id}}/edit">Edit Country</a></p>
 </div>
-
 
 {% endblock %}

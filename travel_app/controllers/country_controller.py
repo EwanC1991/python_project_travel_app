@@ -31,14 +31,16 @@ def create_country():
 @countries_blueprint.route("/countries/<id>", methods=['GET'])
 def show_country(id):
     country = country_repository.select(id)
-    return render_template('/countries/show.html', country=country)
+    cities = city_repository.select_all()
+    return render_template('/countries/show.html', country=country, all_cities=cities)
 
 #EDIT 
 #GET 'countries/<id>/edit
 @countries_blueprint.route("/countries/<id>/edit", methods=['GET'])
 def edit_country(id):
     country = country_repository.select(id)
-    return render_template('countries/edit.html', country=country)
+    cities = city_repository.select_all()
+    return render_template('countries/edit.html', country=country, all_cities=cities)
 
 # UPDATE
 # PUT '/countries/<id>'

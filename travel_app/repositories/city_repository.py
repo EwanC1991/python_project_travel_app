@@ -35,7 +35,7 @@ def select(id):
     if result is not None:
         visited = True if result['visited'] == 1 else False
         country = country_repository.select(result['country_id'])
-        city = City(result['name'], visited, country, result['id'])
+        city = City(result['name'], country, visited, result['id'])
     return city
 
 def delete_all():
