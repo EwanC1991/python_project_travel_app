@@ -46,6 +46,7 @@ def edit_sight(id):
     sight = sight_repository.select(id)
     cities = city_repository.select_all()
     return render_template('sights/edit/html', sight=sight, all_cities=cities)
+    
 # UPDATE
 # PUT '/cities/<id>'
 @sights_blueprint.route("/sights/<id>", methods=['POST'])

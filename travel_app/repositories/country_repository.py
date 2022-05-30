@@ -3,9 +3,11 @@ from db.run_sql import run_sql
 from models.country import Country
 from models.city import City
 
+import repositories.continent_repository as continent_repository 
+
 def save(country):
-    sql = "INSERT INTO countries (name, visited) VALUES (?, ?) RETURNING *"
-    values = [country.name, country.visited]
+    sql = "INSERT INTO countries (name, continent_id, visited) VALUES (?, ?, ?) RETURNING *"
+    values = [country.name, country.continent.id, country.visited]
     results = run_sql(sql, values)
     id = results[0]['id']
     country.id = id
@@ -19,7 +21,8 @@ def select_all():
 
     for row in results:
         visited = True if row['visited'] == 1 else False
-        country = Country(row['name'], visited, row['id'])
+        continent = continent_repository.select(row['continent_id'])
+        country = Country(row['name'], continent, visited, row['id'])
         countries.append(country)
     return countries
 
@@ -31,7 +34,8 @@ def select(id):
 
     if result is not None:
         visited = True if result['visited'] == 1 else False
-        country = Country(result['name'], visited, result['id'])
+        continent = continent_repository.select(result['continent_id'])
+        country = Country(result['name'], continent, visited, result['id'])
     return country
 
 def delete_all():
@@ -45,8 +49,8 @@ def delete(id):
     run_sql(sql, values)
 
 def update(country):
-    sql = "UPDATE countries SET (name, visited) = (?, ?) WHERE id = ?"
-    values = [country.name, country.visited, country.id]
+    sql = "UPDATE countries SET (name, continent_id, visited) = (?, ?, ?) WHERE id = ?"
+    values = [country.name, country.continent.id, country.visited, country.id]
     run_sql(sql, values)
 
 def cities(country):
@@ -58,7 +62,7 @@ def cities(country):
 
     for row in results:
         visited = True if row['visited'] == 1 else False
-        city = City(row['name', visited, row['country_id']])
+        city = City(row['name'], visited, row['country_id'])
         cities.append(city)
     return cities
 

@@ -3,6 +3,7 @@ from flask import Blueprint
 from models.country import Country
 import repositories.city_repository as city_repository
 import repositories.country_repository as country_repository
+import repositories.continent_repository as continent_repository
 
 countries_blueprint = Blueprint("countries", __name__)
 
@@ -22,7 +23,8 @@ def new_country():
 @countries_blueprint.route("/countries", methods =['POST'])
 def create_country():
     name = request.form['name']
-    country = Country(name)
+    continent = continent_repository.select(request.form['continent_id'])
+    country = Country(name, continent)
     country_repository.save(country)
     return redirect('/countries')
 
@@ -47,8 +49,10 @@ def edit_country(id):
 @countries_blueprint.route("/countries/<id>", methods=['POST'])
 def update_country(id):
     name = request.form['name']
+    continent_id= request.form['continent_id']
     visited = bool(int(request.form['visited']))
-    country = Country(name, visited, id)
+    continent = continent_repository.select(continent_id)
+    country = Country(name, continent, visited, id)
     country_repository.update(country)
     return redirect('/countries')
 

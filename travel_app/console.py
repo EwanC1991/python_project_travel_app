@@ -7,6 +7,7 @@ from models.sights import Sight
 import repositories.country_repository as country_repository
 import repositories.city_repository as city_repository
 import repositories.continent_repository as continent_repository
+import repositories.sight_repository as sight_repository
 
 country_repository.delete_all()
 city_repository.delete_all()
@@ -29,9 +30,9 @@ continent_repository.save(continent7)
 
 continent_repository.select_all()
 
-country1 = Country("Spain", False)
+country1 = Country("Spain", continent1, False)
 country_repository.save(country1)
-country2 = Country("France", True)
+country2 = Country("France", continent1, True)
 country_repository.save(country2)
 
 country_repository.select_all()
@@ -50,5 +51,18 @@ city6 = City("Nice", country2, True)
 city_repository.save(city6)
 
 city_repository.select_all()
+
+sight1 = Sight("Nou Camp", city1, False)
+sight_repository.save(sight1)
+sight2 = Sight("Bernabeu Stadium", city2, False)
+sight_repository.save(sight2)
+sight3 = Sight("Alcazar of Seville", city3, False)
+sight_repository.save(sight3)
+sight4 = Sight("Eiffel Tower", city4, True)
+sight_repository.save(sight4)
+sight5 = Sight("Basilique Saint-Sernin", city5, True)
+sight_repository.save(sight5)
+sight6 = Sight("Vieille Ville", city6, True)
+sight_repository.save(sight6)
 
 pdb.set_trace()

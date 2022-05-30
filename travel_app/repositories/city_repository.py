@@ -1,6 +1,7 @@
 from db.run_sql import run_sql
 
 from models.city import City
+from models.sights import Sight
 
 import repositories.country_repository as country_repository
 
@@ -50,3 +51,16 @@ def update(city):
     sql = "UPDATE cities SET (name, visited, country_id) = (?, ?, ?) WHERE id = ?"
     values = [city.name, city.visited, city.country.id, city.id]
     run_sql(sql, values)
+
+def sights(city):
+    sights = []
+
+    sql="SELECT * FROM sights WHERE city_id = ?"
+    values = [city.id]
+    results = run_sql(sql, values)
+
+    for row in results:
+        visited = True if row['visited'] == 1 else False
+        sight = Sight(row['name'], visited, row['city_id'])
+        sights.append(sight)
+    return sights
