@@ -24,6 +24,8 @@ continent5 = Continent("Oceania")
 continent_repository.save(continent5)
 continent6 = Continent("South America")
 continent_repository.save(continent6)
+continent7 = Continent("Anartica")
+continent_repository.save(continent7)
 
 continent_repository.select_all()
 
