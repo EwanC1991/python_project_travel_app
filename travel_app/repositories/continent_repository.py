@@ -15,9 +15,9 @@ def select_all():
     continents = []
 
     sql = "SELECT * FROM continents"
-
+    results = run_sql(sql)
     for row in results:
-        continent = Continent(row['name'], row ['id'])
+        continent = Continent(row['name'], row['id'])
         continents.append(continent)
     return continents
 
@@ -54,7 +54,7 @@ def countries(continent):
 
     for row in results:
         visited = True if row['visited'] == 1 else False
-        country = Country(row['name'], visited, row['continent_id'])
+        country = Country(row['name'], row['continent_id'], visited)
         countries.append(country)
     return countries
 
