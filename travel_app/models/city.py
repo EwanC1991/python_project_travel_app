@@ -3,7 +3,7 @@ class City:
         self.name = name
         self.country = country
         self.visited = visited
-        self.id=id
+        self.id= id
 
     def mark_visited(self):
         self.visited = True

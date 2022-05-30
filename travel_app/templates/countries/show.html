@@ -3,6 +3,7 @@
 
 <div>
     <p>{{country.name}}</p>
+    <p>Cities:</p>
     {% for city in all_cities %}
     {% if country.id == city.country.id %}
     <div class="city">
