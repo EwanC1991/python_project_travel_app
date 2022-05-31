@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+{% block content %}
+
+<form action="/sights/{{sight.id}}" method="post">
+    <div>
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" placeholder="{{sight.name}}" required autofocus>
+    </div>
+
+    <div>
+        <label for="city">City:</label>
+        <select id="city" name="city_id">
+            {% for city in all_cities %}
+            {% if sight.city.name == city.name %}
+
+            <option selected="selcted" value="{{ city.id }}">{{ city.name }}</option>
+            {% else %}
+            <option value="{{ city.id }}">{{ city.name }}</option>
+            {% endif %}
+            {% endfor %}
+        </select>
+    </div>
+
+    <div>
+        <label for="visited">Visited:</label>
+        <select id="visited" name="visited">
+
+            <option value="1" {% if sight.visited==True %} selected="selected" {% endif %}>
+                True
+            </option>
+
+            <option value="0" {% if sight.visited==False %} selected="selected" {% endif %}>
+                False
+            </option>
+
+        </select>
+    </div>
+
+    <button type="submit">Update Sight</button>
+</form>
+
+{% endblock %}

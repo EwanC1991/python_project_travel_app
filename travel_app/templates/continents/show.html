@@ -7,7 +7,7 @@
     {% for country in all_countries %}
     {% if continent.id == country.continent.id %}
     <div class="country">
-        {{country.name}}
+        <a href="/countries/{{country.id}}">{{country.name}}</a>
 
         {% endif %}
 

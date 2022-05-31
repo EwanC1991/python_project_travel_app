@@ -17,7 +17,7 @@ CREATE TABLE countries (
     visited BOOLEAN,
     continent_id INTEGER NOT NULL,
         FOREIGN KEY (continent_id)
-            REFERENCES continents(id)
+            REFERENCES continents(id) 
 );
 
 CREATE TABLE cities (
@@ -35,5 +35,5 @@ CREATE TABLE sights (
     visited BOOLEAN,
     city_id INTEGER NOT NULL,
         FOREIGN KEY (city_id)
-            REFERENCES cities(id)
+            REFERENCES cities(id) ON DELETE CASCADE
 );

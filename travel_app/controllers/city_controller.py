@@ -4,6 +4,7 @@ from models.city import City
 from models.country import Country
 import repositories.city_repository as city_repository
 import repositories.country_repository as country_repository
+import repositories.sight_repository as sight_repository
 
 cities_blueprint = Blueprint("cities", __name__)
 
@@ -34,7 +35,8 @@ def create_city():
 @cities_blueprint.route("/cities/<id>", methods=['GET'])
 def show_city(id):
     city = city_repository.select(id)
-    return render_template('cities/show.html', city=city)
+    sights = sight_repository.select_all()
+    return render_template('cities/show.html', city=city, all_sights=sights)
 
 #EDIT 
 #GET 'cities/<id>/edit

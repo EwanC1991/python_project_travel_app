@@ -3,7 +3,8 @@
 
 {% for sight in all_sights %}
 <div class="sight">
-    <a href="/sights/{{sight.id}}">{{sight.name}}</a>
+    Sight: <a href="/sights/{{sight.id}}">{{sight.name}}</a>
+    <p>Location: <a href="/cities/{{sight.city.id}}">{{sight.city.name}}</a></p>
 </div>
 
 {% endfor %}
