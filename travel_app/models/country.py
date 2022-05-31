@@ -1,6 +1,3 @@
-from controllers.continent_controller import continents
-
-
 class Country:
 
     def __init__(self, name, continent, visited=False, id=None):

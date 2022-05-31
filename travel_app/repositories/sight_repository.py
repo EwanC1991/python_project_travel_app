@@ -5,7 +5,7 @@ from models.sights import Sight
 import repositories.city_repository as city_repository
 
 def save(sight):
-    sql = "INSERT INTO sights (name, city_id, visited) VALUES (?,?,?)"
+    sql = "INSERT INTO sights (name, city_id, visited) VALUES (?,?,?) RETURNING *"
     values = [sight.name, sight.city.id, sight.visited]
     results = run_sql(sql, values)
     id = results[0]['id']
@@ -27,7 +27,7 @@ def select_all():
 
 def select(id):
     sight = None
-    sql = "SELECT * FROM sight WHERE id = ?"
+    sql = "SELECT * FROM sights WHERE id = ?"
     values = [id]
     result = run_sql(sql, values)[0]
 

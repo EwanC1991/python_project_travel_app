@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div>
+    <p>{{continent.name}}</p>
+    <p>Countries:</p>
+    {% for country in all_countries %}
+    {% if continent.id == country.continent.id %}
+    <div class="country">
+        {{country.name}}
+
+        {% endif %}
+
+        {% endfor %}
+    </div>
+
+    {% endblock %}

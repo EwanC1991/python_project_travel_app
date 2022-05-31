@@ -7,15 +7,14 @@ DROP TABLE IF EXISTS continents;
 
 CREATE TABLE continents (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
-    name VARCHAR,
-
-)
+    name VARCHAR
+);
 
 
 CREATE TABLE countries (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     name VARCHAR,
-    visited BOOLEAN
+    visited BOOLEAN,
     continent_id INTEGER NOT NULL,
         FOREIGN KEY (continent_id)
             REFERENCES continents(id)

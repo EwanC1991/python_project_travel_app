@@ -6,6 +6,14 @@
         <label for="name">Name:</label>
         <input type="text" id="name" name="name" placeholder="Name" required autofocus>
     </div>
+    <div>
+        <label for="continent">Continent:</label>
+        <select id="continent" name="continent_id">
+            {% for continent in all_continents %}
+            <option value="{{ continent.id }}">{{ continent.name }}</option>
+            {% endfor %}
+        </select>
+    </div>
 
     <button type="submit">Add Country</button>
 </form>

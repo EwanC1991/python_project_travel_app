@@ -20,6 +20,14 @@
 
         </select>
     </div>
+    <div>
+        <label for="continent">Continent:</label>
+        <select id="continent" name="continent_id">
+            {% for continent in all_continents %}
+            <option value="{{ continent.id }}">{{ continent.name }}</option>
+            {% endfor %}
+        </select>
+    </div>
 
     <button type="submit">Update Country</button>
 </form>

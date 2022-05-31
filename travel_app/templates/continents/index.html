@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% block content %}
+
+{% for continent in all_continents %}
+<div class="continent">
+    <a href="/continents/{{continent.id}}">{{continent.name}}</a>
+</div>
+
+{% endfor %}
+
+{% endblock %}

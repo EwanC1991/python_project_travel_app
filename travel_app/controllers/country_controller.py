@@ -16,7 +16,8 @@ def countries():
 # GET 'countries/new'
 @countries_blueprint.route("/countries/new", methods=['GET'])
 def new_country():
-    return render_template("/countries/new.html")
+    continents = continent_repository.select_all()
+    return render_template("/countries/new.html", all_continents=continents)
 
 # CREATE
 # POST '/countries'
@@ -42,7 +43,8 @@ def show_country(id):
 def edit_country(id):
     country = country_repository.select(id)
     cities = city_repository.select_all()
-    return render_template('countries/edit.html', country=country, all_cities=cities)
+    continents = continent_repository.select_all()
+    return render_template('countries/edit.html', country=country, all_cities=cities, all_continents=continents)
 
 # UPDATE
 # PUT '/countries/<id>'
