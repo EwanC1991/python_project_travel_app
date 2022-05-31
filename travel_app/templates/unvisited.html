@@ -1,6 +1,7 @@
 {% extends "base.html" %}
 {% block content %}
-<h1>Countries</h1>
+<h2>Unvisited</h2>
+<h3>Countries</h3>
 {% for country in all_countries %}
 {% if country.visited == False %}
 <ul>
@@ -8,7 +9,7 @@
 </ul>
 {% endif %}
 {% endfor %}
-<h1>Cities</h1>
+<h3>Cities</h3>
 {% for city in all_cities %}
 {% if city.visited == False %}
 <ul>
@@ -16,7 +17,7 @@
 </ul>
 {% endif %}
 {% endfor %}
-<h1>Sights</h1>
+<h3>Sights</h3>
 {% for sight in all_sights %}
 {% if sight.visited == False %}
 <ul>

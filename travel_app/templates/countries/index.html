@@ -1,14 +1,14 @@
 {% extends "base.html" %}
 {% block content %}
-
+<h3>All Countries</h3>
 {% for country in all_countries %}
 <div class="country">
     <a href="/countries/{{country.id}}">{{country.name}}</a>
 </div>
 {% if country.visited == True %}
-This has been visited
+<i class="fa fa-check" aria-hidden="true"></i>Visited
 {% else %}
-This has not been visited
+<i class="fa fa-times" aria-hidden="true"></i>Unvisited
 {% endif %}
 
 
