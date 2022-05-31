@@ -4,3 +4,4 @@ class Sight:
         self.city = city
         self.visited = visited
         self.id = id
+
