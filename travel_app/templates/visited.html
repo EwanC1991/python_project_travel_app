@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>Countries</h1>
+{% for country in all_countries %}
+{% if country.visited == True %}
+<ul>
+    <li>{{country.name}}</li>
+</ul>
+{% endif %}
+{% endfor %}
+<h1>Cities</h1>
+{% for city in all_cities %}
+{% if city.visited == True %}
+<ul>
+    <li>{{city.name}}</li>
+</ul>
+{% endif %}
+{% endfor %}
+<h1>Sights</h1>
+{% for sight in all_sights %}
+{% if sight.visited == True %}
+<ul>
+    <li>{{sight.name}}</li>
+</ul>
+{% endif %}
+{% endfor %}
+
+{% endblock %}
