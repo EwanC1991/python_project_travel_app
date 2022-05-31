@@ -1,0 +1,25 @@
+body {
+    background: url('/static/images/beach-background.webp');
+    background-size: cover;
+    background-repeat: no-repeat;
+    font-family: Amatic SC, cursive;
+    font-size: large;
+}
+
+header {
+    background-color: #16697A;
+}
+
+header img {
+    width: 180px;
+    height: 120px;
+}
+
+.menu {
+    color: #FFA62B;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    list-style-type: none;
+    font-size: x-large;
+}
