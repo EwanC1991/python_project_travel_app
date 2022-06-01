@@ -2,9 +2,9 @@
 {% block content %}
 <h3>All Continents</h3>
 {% for continent in all_continents %}
-<div class="continent">
-    <a href="/continents/{{continent.id}}">{{continent.name}}</a>
-</div>
+<ul>
+    <li><a href="/continents/{{continent.id}}">{{continent.name}}</a></li>
+</ul>
 
 {% endfor %}
 

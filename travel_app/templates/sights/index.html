@@ -2,10 +2,11 @@
 {% block content %}
 <h3>All Sights</h3>
 {% for sight in all_sights %}
-<div class="sight">
-    Sight: <a href="/sights/{{sight.id}}">{{sight.name}}</a>
-    <p>Location: <a href="/cities/{{sight.city.id}}">{{sight.city.name}}</a></p>
-</div>
+<ul>
+    <li>Sight: <a href="/sights/{{sight.id}}">{{sight.name}}</a><br>
+        Location: <a href="/cities/{{sight.city.id}}">{{sight.city.name}}</a>
+    </li>
+</ul>
 {% if sight.visited == True %}
 <i class="fa fa-check" aria-hidden="true"></i>Visited
 {% else %}

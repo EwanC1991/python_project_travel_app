@@ -2,9 +2,9 @@
 {% block content %}
 <h3>All Countries</h3>
 {% for country in all_countries %}
-<div class="country">
-    <a href="/countries/{{country.id}}">{{country.name}}</a>
-</div>
+<ul>
+    <li> <a href="/countries/{{country.id}}">{{country.name}}</a></li>
+</ul>
 {% if country.visited == True %}
 <i class="fa fa-check" aria-hidden="true"></i>Visited
 {% else %}

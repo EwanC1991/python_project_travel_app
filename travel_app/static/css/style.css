@@ -47,6 +47,23 @@ header img {
     height: 130px;
 }
 
+ul>li>a:link {
+    color: #FFA62B;
+}
+
+ul>li>a:visited {
+    color: #FFA62B;
+}
+
+ul>li>a:hover {
+    color: #EDE7E3;
+}
+
+ul>li>a:active {
+    color: #EDE7E3;
+    text-decoration: underline;
+}
+
 
 
 .menu>li>a:link {

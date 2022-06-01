@@ -2,9 +2,9 @@
 {% block content %}
 <h3>All Cities</h3>
 {% for city in all_cities %}
-<div class="city">
-    <a href="/cities/{{city.id}}">{{city.name}}</a>
-</div>
+<ul>
+    <li><a href="/cities/{{city.id}}">{{city.name}}</a></li>
+</ul>
 {% if city.visited == True %}
 <i class="fa fa-check" aria-hidden="true"></i>Visited
 {% else %}
