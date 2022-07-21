@@ -4,7 +4,7 @@
 
 A Travel Bucket List App that allows you to add Countries, Cities and Sights you would like to visit to an SQLite Database and mark each location as visited or unvisited.
 
-To run this, you need to enter these commands into the terminal in order.
+To run this, you need to enter these commands into the terminal in order in the travel_app folder.
 
 1. sqlite3 db/travel_app.db < db/travel_app.sql
 
