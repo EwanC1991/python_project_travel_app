@@ -1,6 +1,6 @@
 
 
-###Welcome to the Sunnyside Travel App!
+### Welcome to the Sunnyside Travel App!
 
 A Travel Bucket List App that allows you to add Countries, Cities and Sights you would like to visit to an SQLite Database and mark each location as visited or unvisited.
 
